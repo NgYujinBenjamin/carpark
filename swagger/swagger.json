@@ -1,9 +1,13 @@
 {
-	"basePath": "/",
-	"consumes": [
-		"application/json"
-	],
-	"definitions": {},
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {},
+		"securitySchemes": {}
+	},
 	"info": {
 		"title": "carpark",
 		"version": "1.0.0",
@@ -14,18 +18,18 @@
 			"name": "Ng Yujin Benjamin"
 		}
 	},
+	"openapi": "3.0.0",
 	"paths": {
-		"/users/{id}": {
+		"/users": {
 			"get": {
 				"operationId": "GetUser",
-				"produces": [
-					"application/json"
-				],
 				"responses": {
 					"200": {
 						"description": "Ok",
-						"schema": {
-							"additionalProperties": true
+						"content": {
+							"application/json": {
+								"schema": {}
+							}
 						}
 					}
 				},
@@ -34,9 +38,9 @@
 			}
 		}
 	},
-	"produces": [
-		"application/json"
-	],
-	"swagger": "2.0",
-	"securityDefinitions": {}
+	"servers": [
+		{
+			"url": "/docs"
+		}
+	]
 }
