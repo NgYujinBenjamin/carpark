@@ -1,0 +1,21 @@
+{
+    "entryFile": "src/index.ts",
+    "host": "localhost:3000",
+    "basePath": "/",
+    "controllerPathGlobs": [
+        "./src/controllers/**/*.ts"
+    ],
+    "spec": {
+        "info": {
+            "basePath" : "/docs",
+            "description": "",
+            "version": "1.0.0",
+            "title": "Carpark application"
+        },
+        "outputDirectory": "swagger"
+    },
+    "routes": {
+        "basePath": "/api",
+        "routesDir": "routes"
+    }
+}
