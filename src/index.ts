@@ -1,6 +1,8 @@
 import { RegisterRoutes } from "../routes/routes";
 import swaggerUi from "swagger-ui-express";
 
+require('dotenv').config()
+
 const express = require("express");
 const app = express();
 
