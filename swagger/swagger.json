@@ -40,7 +40,7 @@
 	},
 	"servers": [
 		{
-			"url": "/docs"
+			"url": "/"
 		}
 	]
 }

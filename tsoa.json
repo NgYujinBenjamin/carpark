@@ -1,18 +1,12 @@
 {
-    "openapi": "3.0.0",
     "entryFile": "src/index.ts",
-    "basePath": "/",
     "noImplicitAdditionalProperties": "throw-on-extras",
     "controllerPathGlobs": [
         "src/**/*Controller.ts"
     ],
     "spec": {
-        "description": "",
-        "version": "1.0.0",
-        "title": "Carpark application",
         "specVersion": 3,
-        "outputDirectory": "swagger",
-        "basePath": "/docs"
+        "outputDirectory": "swagger"
     },
     "routes": {
         "basePath": "/api",
