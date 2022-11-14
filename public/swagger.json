@@ -11,8 +11,9 @@
 	"info": {
 		"title": "carpark",
 		"version": "1.0.0",
+		"description": "Carpark backend services for Carpark Application",
 		"license": {
-			"name": "ISC"
+			"name": "ISE"
 		},
 		"contact": {
 			"name": "Ng Yujin Benjamin"
@@ -40,7 +41,7 @@
 	},
 	"servers": [
 		{
-			"url": "/"
+			"url": "/api"
 		}
 	]
 }
