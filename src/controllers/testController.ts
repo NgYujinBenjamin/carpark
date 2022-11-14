@@ -1,18 +1,18 @@
-import { dataMall } from "../api/dataMall";
-import { Controller, Route, Get } from "tsoa";
-
-@Route("users")
+import { Controller, Route, Get, Tags } from 'tsoa';
+@Route('users')
+@Tags('testing')
 export class BaseController extends Controller {
-  @Get("")
+  @Get('')
   public async getUser(): Promise<any> {
     try {
-      let dao = new dataMall;
-      let response = await dao.test();
-      console.log(response.json());
+      // const dao = new dataMall();
+      // const response = await dao.test();
+      // console.log(response.json());
     } catch (e) {
       console.log(e);
     }
 
-    return "hello";
+    return 'hello';
   }
 }
+
