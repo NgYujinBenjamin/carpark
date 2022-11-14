@@ -1,19 +1,19 @@
-import swaggerUi from 'swagger-ui-express';
-import express, { Application } from 'express';
-import log from 'npmlog';
-import { RegisterRoutes } from '../routes/routes';
+import swaggerUi from "swagger-ui-express";
+import express, { Application } from "express";
+import log from "npmlog";
+import { RegisterRoutes } from "../routes/routes";
 
 const app: Application = express();
 
-app.use(express.static('public'));
+app.use(express.static("public"));
 app.use(express.json());
 
 app.use(
-  '/docs',
+  "/docs",
   swaggerUi.serve,
   swaggerUi.setup(undefined, {
     swaggerOptions: {
-      url: '/swagger.json',
+      url: "/swagger.json",
     },
   })
 );
