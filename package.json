@@ -4,7 +4,7 @@
   "description": "Carpark backend services for Carpark Application",
   "main": "src/index.ts",
   "author": "Ng Yujin Benjamin",
-  "license": "ISE",
+  "license": "ISC",
   "scripts": {
     "predev": "yarn swagger && yarn routes",
     "prebuild": "yarn swagger && yarn routes",
