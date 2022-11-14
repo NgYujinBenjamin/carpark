@@ -1,16 +1,11 @@
-import { RegisterRoutes } from "../routes/routes";
 import swaggerUi from "swagger-ui-express";
+import express, { Application } from "express";
+import log from "npmlog";
+import { RegisterRoutes } from "../routes/routes";
 
-require('dotenv').config()
+const app: Application = express();
 
-const express = require("express");
-const app = express();
-
-app.use(
-  express.urlencoded({
-    extended: true,
-  })
-);
+app.use(express.static("public"));
 app.use(express.json());
 
 app.use(
@@ -18,7 +13,7 @@ app.use(
   swaggerUi.serve,
   swaggerUi.setup(undefined, {
     swaggerOptions: {
-      url: "swagger/swagger.json",
+      url: "/swagger.json",
     },
   })
 );
@@ -28,5 +23,5 @@ RegisterRoutes(app);
 const port = process.env.PORT || 3000;
 
 app.listen(port, () =>
-  console.log(`Carpark backend app listening at http://localhost:${port}`)
+  log.info(`Main`, `Carpark backend app listening at http://localhost:${port}`)
 );
