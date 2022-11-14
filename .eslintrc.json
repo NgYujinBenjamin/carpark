@@ -1,11 +1,9 @@
 {
   "extends": [
     "eslint:recommended",
-    "airbnb",
-    "airbnb/hooks",
+    "airbnb-base",
     "airbnb-typescript",
     "plugin:jsx-a11y/recommended",
-    "plugin:react-hooks/recommended",
     "prettier"
   ],
   "parser": "@typescript-eslint/parser",
@@ -24,7 +22,6 @@
     "jest": true
   },
   "rules": {
-    "react-hooks/rules-of-hooks": "error",
     "no-debugger": 0,
     "no-alert": 0,
     "no-unused-vars": 1,

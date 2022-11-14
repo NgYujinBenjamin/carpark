@@ -1,17 +1,17 @@
-import fetch from "node-fetch";
+import fetch from 'node-fetch';
 
 export class dataMallConnector {
   baseUrl: string = `http://datamall2.mytransport.sg/ltaodataservice/`;
 
   public async getBusRoutes(skipValue: number): Promise<Response> {
-    const accountKey = process.env.API_KEY || "";
+    const accountKey = process.env.API_KEY || '';
     console.log(accountKey);
-    const url = this.baseUrl + "BusRoutes?$skip=" + skipValue.toString;
+    const url = `${this.baseUrl}BusRoutes?$skip=${skipValue.toString}`;
     const response = await fetch(url, {
-      method: "GET",
+      method: 'GET',
       headers: {
-        accept: "application/json",
-        accountKey: accountKey,
+        accept: 'application/json',
+        accountKey,
       },
     });
     if (!response.ok) {
