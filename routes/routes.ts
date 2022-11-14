@@ -12,13 +12,67 @@ import {
   fetchMiddlewares,
 } from "@tsoa/runtime";
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { BaseController } from "./../src/controllers/testController";
+import { BusController } from "./../src/controllers/testController";
 import type { RequestHandler } from "express";
 import * as express from "express";
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
-const models: TsoaRoute.Models = {};
+const models: TsoaRoute.Models = {
+  Headers: {
+    dataType: "refObject",
+    properties: {},
+    additionalProperties: false,
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  ResponseType: {
+    dataType: "refAlias",
+    type: {
+      dataType: "union",
+      subSchemas: [
+        { dataType: "enum", enums: ["basic"] },
+        { dataType: "enum", enums: ["cors"] },
+        { dataType: "enum", enums: ["default"] },
+        { dataType: "enum", enums: ["error"] },
+        { dataType: "enum", enums: ["opaque"] },
+        { dataType: "enum", enums: ["opaqueredirect"] },
+      ],
+      validators: {},
+    },
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  ReadableStream_Uint8Array_: {
+    dataType: "refObject",
+    properties: {
+      locked: { dataType: "boolean", required: true },
+    },
+    additionalProperties: false,
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+  Response: {
+    dataType: "refObject",
+    properties: {
+      body: {
+        dataType: "union",
+        subSchemas: [
+          { ref: "ReadableStream_Uint8Array_" },
+          { dataType: "enum", enums: [null] },
+        ],
+        required: true,
+      },
+      bodyUsed: { dataType: "boolean", required: true },
+      headers: { ref: "Headers", required: true },
+      ok: { dataType: "boolean", required: true },
+      redirected: { dataType: "boolean", required: true },
+      status: { dataType: "double", required: true },
+      statusText: { dataType: "string", required: true },
+      type: { ref: "ResponseType", required: true },
+      url: { dataType: "string", required: true },
+    },
+    additionalProperties: false,
+  },
+  // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+};
 const validationService = new ValidationService(models);
 
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
@@ -29,12 +83,19 @@ export function RegisterRoutes(app: express.Router) {
   //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
   // ###########################################################################################################
   app.get(
-    "/api/users",
-    ...fetchMiddlewares<RequestHandler>(BaseController),
-    ...fetchMiddlewares<RequestHandler>(BaseController.prototype.getUser),
+    "/api/bus/route/:skipValue",
+    ...fetchMiddlewares<RequestHandler>(BusController),
+    ...fetchMiddlewares<RequestHandler>(BusController.prototype.getRoutes),
 
-    function BaseController_getUser(request: any, response: any, next: any) {
-      const args = {};
+    function BusController_getRoutes(request: any, response: any, next: any) {
+      const args = {
+        skipValue: {
+          in: "path",
+          name: "skipValue",
+          required: true,
+          dataType: "double",
+        },
+      };
 
       // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 
@@ -42,9 +103,9 @@ export function RegisterRoutes(app: express.Router) {
       try {
         validatedArgs = getValidatedArgs(args, request, response);
 
-        const controller = new BaseController();
+        const controller = new BusController();
 
-        const promise = controller.getUser.apply(
+        const promise = controller.getRoutes.apply(
           controller,
           validatedArgs as any
         );
