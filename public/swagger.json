@@ -103,9 +103,38 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/bus/route/{skipValue}": {
+		"/datamall/busroute/{skipValue}": {
 			"get": {
-				"operationId": "GetRoutes",
+				"operationId": "GetBusRoutes",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "skipValue",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/datamall/carparkavailability/{skipValue}": {
+			"get": {
+				"operationId": "GetCarparkAvailability",
 				"responses": {
 					"200": {
 						"description": "Ok",

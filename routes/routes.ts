@@ -3,7 +3,7 @@
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
 import { Controller, ValidationService, FieldErrors, ValidateError, TsoaRoute, HttpStatusCodeLiteral, TsoaResponse, fetchMiddlewares } from '@tsoa/runtime';
 // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
-import { BusController } from './../src/controllers/BusController';
+import { DataMallController } from './../src/controllers/DataMallController';
 import type { RequestHandler } from 'express';
 import * as express from 'express';
 
@@ -56,11 +56,11 @@ export function RegisterRoutes(app: express.Router) {
     //  NOTE: If you do not see routes for all of your controllers in this file, then you might not have informed tsoa of where to look
     //      Please look into the "controllerPathGlobs" config option described in the readme: https://github.com/lukeautry/tsoa
     // ###########################################################################################################
-        app.get('/api/bus/route/:skipValue',
-            ...(fetchMiddlewares<RequestHandler>(BusController)),
-            ...(fetchMiddlewares<RequestHandler>(BusController.prototype.getRoutes)),
+        app.get('/api/datamall/busroute/:skipValue',
+            ...(fetchMiddlewares<RequestHandler>(DataMallController)),
+            ...(fetchMiddlewares<RequestHandler>(DataMallController.prototype.getBusRoutes)),
 
-            function BusController_getRoutes(request: any, response: any, next: any) {
+            function DataMallController_getBusRoutes(request: any, response: any, next: any) {
             const args = {
                     skipValue: {"in":"path","name":"skipValue","required":true,"dataType":"double"},
             };
@@ -71,10 +71,35 @@ export function RegisterRoutes(app: express.Router) {
             try {
                 validatedArgs = getValidatedArgs(args, request, response);
 
-                const controller = new BusController();
+                const controller = new DataMallController();
 
 
-              const promise = controller.getRoutes.apply(controller, validatedArgs as any);
+              const promise = controller.getBusRoutes.apply(controller, validatedArgs as any);
+              promiseHandler(controller, promise, response, undefined, next);
+            } catch (err) {
+                return next(err);
+            }
+        });
+        // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+        app.get('/api/datamall/carparkavailability/:skipValue',
+            ...(fetchMiddlewares<RequestHandler>(DataMallController)),
+            ...(fetchMiddlewares<RequestHandler>(DataMallController.prototype.getCarparkAvailability)),
+
+            function DataMallController_getCarparkAvailability(request: any, response: any, next: any) {
+            const args = {
+                    skipValue: {"in":"path","name":"skipValue","required":true,"dataType":"double"},
+            };
+
+            // WARNING: This file was auto-generated with tsoa. Please do not modify it. Re-run tsoa to re-generate this file: https://github.com/lukeautry/tsoa
+
+            let validatedArgs: any[] = [];
+            try {
+                validatedArgs = getValidatedArgs(args, request, response);
+
+                const controller = new DataMallController();
+
+
+              const promise = controller.getCarparkAvailability.apply(controller, validatedArgs as any);
               promiseHandler(controller, promise, response, undefined, next);
             } catch (err) {
                 return next(err);
