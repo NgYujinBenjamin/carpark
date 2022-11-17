@@ -1,170 +1,170 @@
 {
-	"components": {
-		"examples": {},
-		"headers": {},
-		"parameters": {},
-		"requestBodies": {},
-		"responses": {},
-		"schemas": {
-			"Headers": {
-				"description": "This Fetch API interface allows you to perform various actions on HTTP request and response headers. These actions include retrieving, setting, adding to, and removing. A Headers object has an associated header list, which is initially empty and consists of zero or more name and value pairs.  You can add to this using methods like append() (see Examples.) In all methods of this interface, header names are matched by case-insensitive byte sequence.",
-				"properties": {},
-				"type": "object",
-				"additionalProperties": false
-			},
-			"ResponseType": {
-				"type": "string",
-				"enum": [
-					"basic",
-					"cors",
-					"default",
-					"error",
-					"opaque",
-					"opaqueredirect"
-				]
-			},
-			"ReadableStream_Uint8Array_": {
-				"description": "This Streams API interface represents a readable stream of byte data. The Fetch API offers a concrete instance of a ReadableStream through the body property of a Response object.",
-				"properties": {
-					"locked": {
-						"type": "boolean"
-					}
-				},
-				"required": [
-					"locked"
-				],
-				"type": "object",
-				"additionalProperties": false
-			},
-			"Response": {
-				"description": "This Fetch API interface represents the response to a request.",
-				"properties": {
-					"body": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/ReadableStream_Uint8Array_"
-							}
-						],
-						"nullable": true
-					},
-					"bodyUsed": {
-						"type": "boolean"
-					},
-					"headers": {
-						"$ref": "#/components/schemas/Headers"
-					},
-					"ok": {
-						"type": "boolean"
-					},
-					"redirected": {
-						"type": "boolean"
-					},
-					"status": {
-						"type": "number",
-						"format": "double"
-					},
-					"statusText": {
-						"type": "string"
-					},
-					"type": {
-						"$ref": "#/components/schemas/ResponseType"
-					},
-					"url": {
-						"type": "string"
-					}
-				},
-				"required": [
-					"body",
-					"bodyUsed",
-					"headers",
-					"ok",
-					"redirected",
-					"status",
-					"statusText",
-					"type",
-					"url"
-				],
-				"type": "object",
-				"additionalProperties": false
-			}
-		},
-		"securitySchemes": {}
-	},
-	"info": {
-		"title": "carpark",
-		"version": "1.0.0",
-		"description": "Carpark backend services for Carpark Application",
-		"license": {
-			"name": "ISC"
-		},
-		"contact": {
-			"name": "Ng Yujin Benjamin"
-		}
-	},
-	"openapi": "3.0.0",
-	"paths": {
-		"/datamall/busroute/{skipValue}": {
-			"get": {
-				"operationId": "GetBusRoutes",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Response"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "skipValue",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					}
-				]
-			}
-		},
-		"/datamall/carparkavailability/{skipValue}": {
-			"get": {
-				"operationId": "GetCarparkAvailability",
-				"responses": {
-					"200": {
-						"description": "Ok",
-						"content": {
-							"application/json": {
-								"schema": {
-									"$ref": "#/components/schemas/Response"
-								}
-							}
-						}
-					}
-				},
-				"security": [],
-				"parameters": [
-					{
-						"in": "path",
-						"name": "skipValue",
-						"required": true,
-						"schema": {
-							"format": "double",
-							"type": "number"
-						}
-					}
-				]
-			}
-		}
-	},
-	"servers": [
-		{
-			"url": "/api"
-		}
-	]
+  "components": {
+    "examples": {},
+    "headers": {},
+    "parameters": {},
+    "requestBodies": {},
+    "responses": {},
+    "schemas": {
+      "Headers": {
+        "properties": {},
+        "type": "object",
+        "additionalProperties": false
+      },
+      "ResponseType": {
+        "type": "string",
+        "enum": [
+          "basic",
+          "cors",
+          "default",
+          "error",
+          "opaque",
+          "opaqueredirect"
+        ]
+      },
+      "NodeJS.ReadableStream": {
+        "properties": {
+          "readable": {
+            "type": "boolean"
+          }
+        },
+        "required": ["readable"],
+        "type": "object",
+        "additionalProperties": false
+      },
+      "Response": {
+        "properties": {
+          "body": {
+            "$ref": "#/components/schemas/NodeJS.ReadableStream"
+          },
+          "bodyUsed": {
+            "type": "boolean"
+          },
+          "size": {
+            "type": "number",
+            "format": "double"
+          },
+          "timeout": {
+            "type": "number",
+            "format": "double"
+          },
+          "headers": {
+            "$ref": "#/components/schemas/Headers"
+          },
+          "ok": {
+            "type": "boolean"
+          },
+          "redirected": {
+            "type": "boolean"
+          },
+          "status": {
+            "type": "number",
+            "format": "double"
+          },
+          "statusText": {
+            "type": "string"
+          },
+          "type": {
+            "$ref": "#/components/schemas/ResponseType"
+          },
+          "url": {
+            "type": "string"
+          }
+        },
+        "required": [
+          "body",
+          "bodyUsed",
+          "size",
+          "timeout",
+          "headers",
+          "ok",
+          "redirected",
+          "status",
+          "statusText",
+          "type",
+          "url"
+        ],
+        "type": "object",
+        "additionalProperties": false
+      }
+    },
+    "securitySchemes": {}
+  },
+  "info": {
+    "title": "carpark",
+    "version": "1.0.0",
+    "description": "Carpark backend services for Carpark Application",
+    "license": {
+      "name": "ISC"
+    },
+    "contact": {
+      "name": "Ng Yujin Benjamin"
+    }
+  },
+  "openapi": "3.0.0",
+  "paths": {
+    "/datamall/busroute/{skipValue}": {
+      "get": {
+        "operationId": "GetBusRoutes",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skipValue",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    },
+    "/datamall/carparkavailability/{skipValue}": {
+      "get": {
+        "operationId": "GetCarparkAvailability",
+        "responses": {
+          "200": {
+            "description": "Ok",
+            "content": {
+              "application/json": {
+                "schema": {
+                  "$ref": "#/components/schemas/Response"
+                }
+              }
+            }
+          }
+        },
+        "security": [],
+        "parameters": [
+          {
+            "in": "path",
+            "name": "skipValue",
+            "required": true,
+            "schema": {
+              "format": "double",
+              "type": "number"
+            }
+          }
+        ]
+      }
+    }
+  },
+  "servers": [
+    {
+      "url": "/api"
+    }
+  ]
 }

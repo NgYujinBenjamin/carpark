@@ -1,13 +1,14 @@
-import fetch from "node-fetch";
+import { Response } from "node-fetch";
+import { GETDataMallAPI } from "./utils";
 
 export default class DataMallConnector {
   baseUrl: string = `http://datamall2.mytransport.sg/ltaodataservice/`;
 
-  accountKey: string = process.env.API_KEY || "";
+  accountKey: string = process.env.DATAMALL_API_KEY || "";
 
   public async getBusRoutes(skipValue: number): Promise<Response> {
     const url = `${this.baseUrl}BusRoutes?$skip=${skipValue.toString}`;
-    const response = await this.GETExternalAPI(url);
+    const response = await GETDataMallAPI(url, this.accountKey);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
@@ -16,20 +17,10 @@ export default class DataMallConnector {
 
   public async getCarparkAvailability(skipValue: number): Promise<Response> {
     const url = `${this.baseUrl}CarParkAvailabilityv2?$skip=${skipValue.toString}`;
-    const response = await this.GETExternalAPI(url);
+    const response = await GETDataMallAPI(url, this.accountKey);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
     }
     return response.json() as unknown as Response;
-  }
-
-  private async GETExternalAPI(url: string) {
-    return fetch(url, {
-      method: "GET",
-      headers: {
-        accept: "application/json",
-        accountKey: this.accountKey,
-      },
-    });
   }
 }
