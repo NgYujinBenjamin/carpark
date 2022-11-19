@@ -1,0 +1,10 @@
+*.json
+*.scss.d.ts
+react-app-env.d.ts
+__snapshots__
+build
+coverage
+dist
+generated
+node_modules
+routes

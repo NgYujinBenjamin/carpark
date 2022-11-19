@@ -1,10 +1,10 @@
-import { Response } from "node-fetch";
-import { GETMapsAPI } from "./utils";
+import {Response} from 'node-fetch';
+import {GETMapsAPI} from './utils';
 
 export default class GoogleMapsConnector {
   baseUrl: string = ``;
 
-  accountKey: string = process.env.MAPS_API_KEY || "";
+  accountKey: string = process.env.MAPS_API_KEY || '';
 
   public async getPlaceholder(): Promise<Response> {
     // const url = ``;

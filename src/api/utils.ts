@@ -1,13 +1,10 @@
-import fetch, { Response } from "node-fetch";
+import fetch, {Response} from 'node-fetch';
 
-export function GETDataMallAPI(
-  url: string,
-  accountKey: string
-): Promise<Response> {
+export function GETDataMallAPI(url: string, accountKey: string): Promise<Response> {
   return fetch(url, {
-    method: "GET",
+    method: 'GET',
     headers: {
-      accept: "application/json",
+      accept: 'application/json',
       accountKey,
     },
   });
