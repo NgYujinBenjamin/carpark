@@ -1,170 +1,172 @@
 {
-  "components": {
-    "examples": {},
-    "headers": {},
-    "parameters": {},
-    "requestBodies": {},
-    "responses": {},
-    "schemas": {
-      "Headers": {
-        "properties": {},
-        "type": "object",
-        "additionalProperties": false
-      },
-      "ResponseType": {
-        "type": "string",
-        "enum": [
-          "basic",
-          "cors",
-          "default",
-          "error",
-          "opaque",
-          "opaqueredirect"
-        ]
-      },
-      "NodeJS.ReadableStream": {
-        "properties": {
-          "readable": {
-            "type": "boolean"
-          }
-        },
-        "required": ["readable"],
-        "type": "object",
-        "additionalProperties": false
-      },
-      "Response": {
-        "properties": {
-          "body": {
-            "$ref": "#/components/schemas/NodeJS.ReadableStream"
-          },
-          "bodyUsed": {
-            "type": "boolean"
-          },
-          "size": {
-            "type": "number",
-            "format": "double"
-          },
-          "timeout": {
-            "type": "number",
-            "format": "double"
-          },
-          "headers": {
-            "$ref": "#/components/schemas/Headers"
-          },
-          "ok": {
-            "type": "boolean"
-          },
-          "redirected": {
-            "type": "boolean"
-          },
-          "status": {
-            "type": "number",
-            "format": "double"
-          },
-          "statusText": {
-            "type": "string"
-          },
-          "type": {
-            "$ref": "#/components/schemas/ResponseType"
-          },
-          "url": {
-            "type": "string"
-          }
-        },
-        "required": [
-          "body",
-          "bodyUsed",
-          "size",
-          "timeout",
-          "headers",
-          "ok",
-          "redirected",
-          "status",
-          "statusText",
-          "type",
-          "url"
-        ],
-        "type": "object",
-        "additionalProperties": false
-      }
-    },
-    "securitySchemes": {}
-  },
-  "info": {
-    "title": "carpark",
-    "version": "1.0.0",
-    "description": "Carpark backend services for Carpark Application",
-    "license": {
-      "name": "ISC"
-    },
-    "contact": {
-      "name": "Ng Yujin Benjamin"
-    }
-  },
-  "openapi": "3.0.0",
-  "paths": {
-    "/datamall/busroute/{skipValue}": {
-      "get": {
-        "operationId": "GetBusRoutes",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "skipValue",
-            "required": true,
-            "schema": {
-              "format": "double",
-              "type": "number"
-            }
-          }
-        ]
-      }
-    },
-    "/datamall/carparkavailability/{skipValue}": {
-      "get": {
-        "operationId": "GetCarparkAvailability",
-        "responses": {
-          "200": {
-            "description": "Ok",
-            "content": {
-              "application/json": {
-                "schema": {
-                  "$ref": "#/components/schemas/Response"
-                }
-              }
-            }
-          }
-        },
-        "security": [],
-        "parameters": [
-          {
-            "in": "path",
-            "name": "skipValue",
-            "required": true,
-            "schema": {
-              "format": "double",
-              "type": "number"
-            }
-          }
-        ]
-      }
-    }
-  },
-  "servers": [
-    {
-      "url": "/api"
-    }
-  ]
+	"components": {
+		"examples": {},
+		"headers": {},
+		"parameters": {},
+		"requestBodies": {},
+		"responses": {},
+		"schemas": {
+			"Headers": {
+				"properties": {},
+				"type": "object",
+				"additionalProperties": false
+			},
+			"ResponseType": {
+				"type": "string",
+				"enum": [
+					"basic",
+					"cors",
+					"default",
+					"error",
+					"opaque",
+					"opaqueredirect"
+				]
+			},
+			"NodeJS.ReadableStream": {
+				"properties": {
+					"readable": {
+						"type": "boolean"
+					}
+				},
+				"required": [
+					"readable"
+				],
+				"type": "object",
+				"additionalProperties": false
+			},
+			"Response": {
+				"properties": {
+					"body": {
+						"$ref": "#/components/schemas/NodeJS.ReadableStream"
+					},
+					"bodyUsed": {
+						"type": "boolean"
+					},
+					"size": {
+						"type": "number",
+						"format": "double"
+					},
+					"timeout": {
+						"type": "number",
+						"format": "double"
+					},
+					"headers": {
+						"$ref": "#/components/schemas/Headers"
+					},
+					"ok": {
+						"type": "boolean"
+					},
+					"redirected": {
+						"type": "boolean"
+					},
+					"status": {
+						"type": "number",
+						"format": "double"
+					},
+					"statusText": {
+						"type": "string"
+					},
+					"type": {
+						"$ref": "#/components/schemas/ResponseType"
+					},
+					"url": {
+						"type": "string"
+					}
+				},
+				"required": [
+					"body",
+					"bodyUsed",
+					"size",
+					"timeout",
+					"headers",
+					"ok",
+					"redirected",
+					"status",
+					"statusText",
+					"type",
+					"url"
+				],
+				"type": "object",
+				"additionalProperties": false
+			}
+		},
+		"securitySchemes": {}
+	},
+	"info": {
+		"title": "carpark",
+		"version": "1.0.0",
+		"description": "Carpark backend services for Carpark Application",
+		"license": {
+			"name": "ISC"
+		},
+		"contact": {
+			"name": "Ng Yujin Benjamin"
+		}
+	},
+	"openapi": "3.0.0",
+	"paths": {
+		"/datamall/busroute/{skipValue}": {
+			"get": {
+				"operationId": "GetBusRoutes",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "skipValue",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		},
+		"/datamall/carparkavailability/{skipValue}": {
+			"get": {
+				"operationId": "GetCarparkAvailability",
+				"responses": {
+					"200": {
+						"description": "Ok",
+						"content": {
+							"application/json": {
+								"schema": {
+									"$ref": "#/components/schemas/Response"
+								}
+							}
+						}
+					}
+				},
+				"security": [],
+				"parameters": [
+					{
+						"in": "path",
+						"name": "skipValue",
+						"required": true,
+						"schema": {
+							"format": "double",
+							"type": "number"
+						}
+					}
+				]
+			}
+		}
+	},
+	"servers": [
+		{
+			"url": "/api"
+		}
+	]
 }
