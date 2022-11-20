@@ -6,14 +6,14 @@ export default class DataMallConnector {
 
   accountKey: string = process.env.DATAMALL_API_KEY || '';
 
-  public async getBusRoutes(skipValue: number): Promise<Response> {
-    const url = `${this.baseUrl}BusRoutes?$skip=${skipValue.toString}`;
-    const response = await GETDataMallAPI(url, this.accountKey);
-    if (!response.ok) {
-      throw new Error(`HTTP error! status: ${response.status}`);
-    }
-    return response.json() as unknown as Response;
-  }
+  // public async getBusRoutes(skipValue: number): Promise<Response> {
+  //   const url = `${this.baseUrl}BusRoutes?$skip=${skipValue.toString}`;
+  //   const response = await GETDataMallAPI(url, this.accountKey);
+  //   if (!response.ok) {
+  //     throw new Error(`HTTP error! status: ${response.status}`);
+  //   }
+  //   return response.json() as unknown as Response;
+  // }
 
   public async getCarparkAvailability(skipValue: number): Promise<Response> {
     const url = `${this.baseUrl}CarParkAvailabilityv2?$skip=${skipValue.toString}`;
