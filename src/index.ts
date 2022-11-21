@@ -8,6 +8,14 @@ const app: Application = express();
 app.use(express.static('public'));
 app.use(express.json());
 
+// if (process.env.OPERATIONAL_ENV === 'dev'){
+app.use((_req, res, next) => {
+  res.header(`Access-Control-Allow-Origin`, `http://localhost:3000`);
+  res.header(`Access-Control-Allow-Headers`, `Origin, X-Requested-With, Content-Type, Accept, Authorization`);
+  next();
+});
+// }
+
 app.use(
   '/docs',
   swaggerUi.serve,
