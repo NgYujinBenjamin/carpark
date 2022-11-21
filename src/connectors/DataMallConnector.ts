@@ -16,7 +16,7 @@ export default class DataMallConnector {
   // }
 
   public async getCarparkAvailability(skipValue: number): Promise<Response> {
-    const url = `${this.baseUrl}CarParkAvailabilityv2?$skip=${skipValue.toString}`;
+    const url = `${this.baseUrl}CarParkAvailabilityv2?$skip=${skipValue.toString()}`;
     const response = await GETDataMallAPI(url, this.accountKey);
     if (!response.ok) {
       throw new Error(`HTTP error! status: ${response.status}`);
