@@ -1,7 +1,7 @@
 import {Controller, Route, Get} from 'tsoa';
 import log from 'npmlog';
 import {Response} from 'node-fetch';
-import DataMallConnector from '../api/DataMallConnector';
+import DataMallConnector from '../connectors/DataMallConnector';
 import {STATUS} from './enums';
 
 @Route('datamall')
