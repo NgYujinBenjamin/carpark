@@ -10,7 +10,7 @@
     "prebuild": "yarn swagger && yarn routes",
     "build": "tsc",
     "dev": "concurrently \"nodemon\" \"nodemon -x tsoa spec\"",
-    "start": "node build/index.js",
+    "start": "node build/src/index.js",
     "test": "jest",
     "prettify": "prettier . -w",
     "routes": "tsoa routes",
