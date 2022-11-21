@@ -7,7 +7,6 @@
 		"responses": {},
 		"schemas": {
 			"Headers": {
-				"description": "This Fetch API interface allows you to perform various actions on HTTP request and response headers. These actions include retrieving, setting, adding to, and removing. A Headers object has an associated header list, which is initially empty and consists of zero or more name and value pairs.  You can add to this using methods like append() (see Examples.) In all methods of this interface, header names are matched by case-insensitive byte sequence.",
 				"properties": {},
 				"type": "object",
 				"additionalProperties": false
@@ -23,32 +22,33 @@
 					"opaqueredirect"
 				]
 			},
-			"ReadableStream_Uint8Array_": {
-				"description": "This Streams API interface represents a readable stream of byte data. The Fetch API offers a concrete instance of a ReadableStream through the body property of a Response object.",
+			"NodeJS.ReadableStream": {
 				"properties": {
-					"locked": {
+					"readable": {
 						"type": "boolean"
 					}
 				},
 				"required": [
-					"locked"
+					"readable"
 				],
 				"type": "object",
 				"additionalProperties": false
 			},
 			"Response": {
-				"description": "This Fetch API interface represents the response to a request.",
 				"properties": {
 					"body": {
-						"allOf": [
-							{
-								"$ref": "#/components/schemas/ReadableStream_Uint8Array_"
-							}
-						],
-						"nullable": true
+						"$ref": "#/components/schemas/NodeJS.ReadableStream"
 					},
 					"bodyUsed": {
 						"type": "boolean"
+					},
+					"size": {
+						"type": "number",
+						"format": "double"
+					},
+					"timeout": {
+						"type": "number",
+						"format": "double"
 					},
 					"headers": {
 						"$ref": "#/components/schemas/Headers"
@@ -76,6 +76,8 @@
 				"required": [
 					"body",
 					"bodyUsed",
+					"size",
+					"timeout",
 					"headers",
 					"ok",
 					"redirected",
@@ -103,9 +105,9 @@
 	},
 	"openapi": "3.0.0",
 	"paths": {
-		"/bus/route/{skipValue}": {
+		"/datamall/carparkavailability/{skipValue}": {
 			"get": {
-				"operationId": "GetRoutes",
+				"operationId": "GetCarparkAvailability",
 				"responses": {
 					"200": {
 						"description": "Ok",
